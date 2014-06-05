@@ -8,5 +8,5 @@ def home(request):
 	if abc.is_valid():
 		new_join = abc.save(commit = False)
 		new_join.save()
-	return render_to_response('join/home.html',locals(),context_instance=RequestContext(request))
+	return render_to_response('location/location.html',locals(),context_instance=RequestContext(request))
 
