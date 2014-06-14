@@ -1,56 +1,36 @@
-﻿<!doctype html>
+﻿
+<!DOCTYPE html>
 <!--[if IE 7 ]>    <html class="ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8 oldie" lang="en"> <![endif]-->
 <!--[if IE 	 ]>    <html class="ie" lang="en"> <![endif]-->
 <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>Book Your Travel - Location</title>
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen,projection,print" />
-	<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" />
-	<link rel="shortcut icon" href="images/favicon.ico" />
-	<script type="text/javascript" src="../../../ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script type="text/javascript" src="../../../ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" media="screen,projection,print" />
+	<link rel="stylesheet" href="{{STATIC_URL}}css/prettyPhoto.css" type="text/css" media="screen" /><link rel="stylesheet" href="css/theme-turqoise.css" id="template-color" />
+	<link rel="shortcut icon" href="{{STATIC_URL}}images/favicon.ico" />
+	<link rel="stylesheet" href="{{STATIC_URL}}css/styler.css" type="text/css" media="screen,projection,print" />
 </head>
 <body>
+<!-- TEMPLATE STYLES -->
 	<!--header-->
 	<header>
 		<div class="wrap clearfix">
 			<!--logo-->
-			<h1 class="logo"><a href="index-2.html" title="Book Your Travel - home"><img src="images/txt/logo.png" alt="Book Your Travel" /></a></h1>
+			<h1 class="logo"><a href="{% url 'location:location' %}" title="Book Your Travel - home"><img src="{{STATIC_URL}}images/txt/logo.png" alt="Book Your Travel" /></a></h1>
 			<!--//logo-->
 			
 			<!--ribbon-->
-			<div class="ribbon">
-				<nav>
-					<ul class="profile-nav">
-						<li class="active"><a href="#" title="My Account">My Account</a></li>
-						<li><a href="#" title="Login">Login</a></li>
-						<li><a href="#" title="Help">Help</a></li>
-					</ul>
-					<ul class="lang-nav">
-						<li class="active"><a href="#" title="English (US)">English (US)</a></li>
-						<li><a href="#" title="English (UK)">English (UK)</a></li>
-						<li><a href="#" title="Deutsch">Deutsch</a></li>
-						<li><a href="#" title="Italiano">Italiano</a></li>
-						<li><a href="#" title="Русский">Русский</a></li>
-					</ul>
-					<ul class="currency-nav">
-						<li class="active"><a href="#" title="$US Dollar">$US Dollar</a></li>
-						<li><a href="#" title="€ Euro">€ Euro</a></li>
-						<li><a href="#" title="£ Pound">£ Pound</a></li>
-					</ul>
-				</nav>
-			</div>
+			
 			<!--//ribbon-->
 			
 			<!--search-->
 			<div class="search">
-				<form id="search-form" method="get" action="http://www.kajag.com/themes/book_your_travel/search-form">
+				<form id="search-form" method="get" action="search-form">
 					<input type="search" placeholder="Search entire site here" name="site_search" id="site_search" /> 
 					<input type="submit" id="submit-site-search" value="submit-site-search" name="submit-site-search"/>
 				</form>
@@ -67,12 +47,24 @@
 		
 		<!--main navigation-->
 		<nav class="main-nav" role="navigation">
-			<ul class="wrap">
-				<li><a href="hotels.html" title="Hotels">Hotels</a>
+			<ul class="wrap" id="nav">
+				<li><a href="{% url 'location:get_cart' %}" title="Hotels">Hotels</a>
+					<!--
 					<ul>
 						<li><a href="#">Secondary navigation</a></li>
-						<li><a href="#">example links</a></li>
+						<li><a href="#">example links</a>
+							<ul>
+								<li><a href="#">Third level navigation</a></li>
+								<li><a href="#">example links</a>
+									<ul>
+										<li><a href="#">Fourth level navigation</a></li>
+										<li><a href="#">example links</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
 					</ul>
+					-->
 				</li>
 				<li><a href="flights.html" title="Flights">Flights</a></li>
 				<li><a href="flight_and_hotels.html" title="Flight + Hotel">Flight + Hotel</a></li>
@@ -82,9 +74,13 @@
 				<li><a href="hot_deals.html" title="Hot deals">Hot deals</a></li>
 				<li><a href="#" title="Vacations">Vacations</a></li>
 				<li><a href="#" title="Business travel">Business travel</a></li>
-				<li><a href="#" title="Group travel">Group travel</a></li>
+				<li><a href="blog.html" title="Blog">Blog</a>
+					<ul>
+						<li><a href="blog_single.html" title="Single Post">Single Post</a>
+					</ul>
+				</li>
 				<li><a href="get_inspired.html" title="Get inspired">Get inspired</a></li>
-				<li class="active"><a href="#" title="Travel guides">Travel guides</a>
+				<li><a href="#" title="Travel guides">Travel guides</a>
 					<ul>
 						<li><a href="location.html">Location Details</a></li>
 					</ul>
@@ -101,16 +97,7 @@
 			<!--main content-->
 			<div class="content clearfix">
 				<!--breadcrumbs-->
-				<nav role="navigation" class="breadcrumbs clearfix">
-					<!--crumbs-->
-					<ul class="crumbs">
-						<li><a href="#" title="Home">Home</a></li>
-						<li><a href="#" title="Travel guides">Travel guides</a></li>
-						<li>London</li>                                       
-					</ul>
-					<!--//crumbs-->
 				
-				</nav>
 				<!--//breadcrumbs-->
 
 				<!--three-fourth content-->
@@ -126,7 +113,7 @@
 							<li><a href="#nightlife" title="Nightlife">Nightlife</a></li>
 							<li><a href="#culture" title="Culture and history">Culture and history</a></li>
 							<li><a href="#hotels" title="Hotels">Hotels</a></li>
-							<li><a href="#flights" title="Flights">Flights</a></li>
+							<li><a href="#" title="Flights">Flights</a></li>
 							<li><a href="#flight_and_hotel" title="Flight + Hotel">Flight + Hotel</a></li>
 							<li><a href="#self_catering" title="Self-catering">Self-catering</a></li>
 							<li><a href="#cruise" title="Cruise">Cruise</a></li>
@@ -220,6 +207,8 @@
 					<section id="hotels" class="tab-content">
 						<div class="deals">
 							<!--deal-->
+
+							
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -231,13 +220,13 @@
 											<img src="images/ico/star.png" alt="" />
 										</span>
 									</h1>
-									<span class="address">London  •  <a href="#">Show on map</a></span>
+									<span class="address">London  •  <a href="{% url 'location:get_cart' %}">Show on map</a></span>
 									<span class="rating"> 8 /10</span>
 									<span class="price">Price per room per night from  <em>$ 50</em> </span>
 									<div class="description">
-										<p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’ walk from London’s Zoological Gardens and a metro station. <a href="hotel.html">More info</a></p>
+										<p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’ walk from London’s Zoological Gardens and a metro station. <a href="#">More info</a></p>
 									</div>
-									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
+									<a href="{% url 'location:add_cart' %}" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
 							<!--//deal-->
@@ -1312,15 +1301,21 @@
 				<!--sidebar-->
 				<aside class="right-sidebar">
 
+					{% block body %}
+					{% endblock %}
+
 					<!--Need Help Booking?-->
+					<!--
 					<article class="default clearfix">
 						<h2>Need Help Booking?</h2>
 						<p>Call our customer services team on the number below to speak to one of our advisors who will help you with all of your holiday needs.</p>
 						<p class="number">1- 555 - 555 - 555</p>
 					</article>
+					-->
 					<!--//Need Help Booking?-->
 					
 					<!--Why Book with us?-->
+					<!--
 					<article class="default clearfix">
 						<h2>Why Book with us?</h2>
 						<h3>Low rates</h3>
@@ -1330,9 +1325,11 @@
 						<h3>We’re Always Here</h3>
 						<p>Call or email us, anytime<br />Get 24-hour support before, during, and after your trip</p>
 					</article>
+					-->
 					<!--//Why Book with us?-->
 					
 					<!--Popular hotels in the area-->
+					<!--
 					<article class="default clearfix">
 						<h2>Popular hotels in the area</h2>
 						<ul class="popular-hotels">
@@ -1397,9 +1394,11 @@
 						</ul>
 						<a href="#" title="Show all" class="show-all">Show all</a>
 					</article>
+					-->
 					<!--//Popular hotels in the area-->
 					
 					<!--Deal of the day-->
+					<!--
 					<article class="default clearfix">
 						<h2>Deal of the day</h2>
 						<div class="deal-of-the-day">
@@ -1418,6 +1417,7 @@
 							</a>
 						</div>
 					</article>
+					-->
 					<!--//Deal of the day-->
 				</aside>
 				<!--//sidebar-->
@@ -1470,7 +1470,7 @@
 			<!--column-->
 			<article class="one-fourth last">
 				<h3>Don’t miss our exclusive offers</h3>
-				<form id="newsletter" action="http://www.kajag.com/themes/book_your_travel/newsletter.php" method="post">
+				<form id="newsletter" action="newsletter.php" method="post">
 					<fieldset>
 						<input type="email" id="newsletter_signup" name="newsletter_signup" placeholder="Enter your email here" />
 						<input type="submit" id="newsletter_submit" name="newsletter_submit" value="Signup" class="gradient-button" />
@@ -1497,18 +1497,101 @@
 		</div>
 	</footer>
 	<!--//footer-->
-	<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-37606232-1']);
-  _gaq.push(['_trackPageview']);
+	<script src="{{STATIC_URL}}js/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/modernizr.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.uniform.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/selectnav.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/scripts.js"></script>	
+	
+	
+	<script type="text/javascript">			
+		/* Template Styles-----------------------------------------------------------------------------------*/
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+		window.console = window.console || (function(){
+			var c = {}; c.log = c.warn = c.debug = c.info = c.error = c.time = c.dir = c.profile = c.clear = c.exception = c.trace = c.assert = function(){};
+			return c;
+		})();
 
-</script>
+
+		jQuery(document).ready(function($) {
+	
+		// Color Changer
+		$(".yellow" ).click(function(){
+			$("#template-color" ).attr("href", "css/theme-yellow.css" );
+			return false;
+		});
+		
+		$(".orange" ).click(function(){
+			$("#template-color" ).attr("href", "css/theme-orange.css" );
+			return false;
+		});
+		
+		$(".strawberry" ).click(function(){
+			$("#template-color" ).attr("href", "css/theme-strawberry.css" );
+			return false;
+		});
+		
+		$(".pink" ).click(function(){
+			$("#template-color" ).attr("href", "css/theme-pink.css" );
+			return false;
+		});		
+		
+		$(".purple" ).click(function(){
+			$("#template-color" ).attr("href", "css/theme-purple.css" );
+			return false;
+		});
+
+		$(".blue" ).click(function(){
+			$("#template-color" ).attr("href", "css/theme-blue.css" );
+			return false;
+		});		
+		
+		$(".black" ).click(function(){
+			$("#template-color" ).attr("href", "css/theme-black.css" );
+			return false;
+		});		
+		
+		
+
+
+		$("#template-styles h2 a").click(function(e){
+			e.preventDefault();
+			var div = $("#template-styles");
+			console.log(div.css("left"));
+			if (div.css("left") === "-135px") {
+				$("#template-styles").animate({
+					left: "0px"
+				}); 
+			} else {
+				$("#template-styles").animate({
+					left: "-135px"
+				});
+			}
+		})
+		
+
+		$(".colors li a").click(function(e){
+			e.preventDefault();
+			$(this).parent().parent().find("a").removeClass("active");
+			$(this).addClass("active");
+		})
+		
+		$(".bg li a").click(function(e){
+			e.preventDefault();
+			$(this).parent().parent().find("a").removeClass("active");
+			$(this).addClass("active");
+			var bg = $(this).css("backgroundImage");
+			$("body,.main").css("backgroundImage",bg)
+		})
+
+			
+
+	});
+
+	</script>
 </body>
 </html>

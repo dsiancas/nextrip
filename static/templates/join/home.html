@@ -1,9 +1,34 @@
 {% extends 'base.html' %}
 
-{% block content %}	
-<h1> Welcome </h1>
-<form action='' method='POST'> {% csrf_token %}
-{{ abc.as_p }}
-<input type='submit' value='join'/>
-</form>
-{% endblock %}
+{% block content %}
+
+{% for i in results %}
+
+{% if i.id_location|divisibleby:"4" %}
+				<article class="one-fourth last">
+{% else %}
+				<article class="one-fourth">
+{% endif %}
+					<figure><a href="{% url 'location:detail' %}" title=""><img src="{{STATIC_URL}}images/uploads/paris.jpg" alt="" width="270" height="152" /></a></figure>
+					<div class="details">
+						<a href="#" title="View all" class="gradient-button">View all</a>
+						<h5>{{ i.name }} </h5>
+						<span class="count">1529 Hotels</span>
+						<div class="ribbon">
+							<div class="half hotel">
+								<a href="#" title="View all">
+									<span class="small">from</span>
+									<span class="price">&#36; 70</span>
+								</a>
+							</div>
+							<div class="half flight">
+								<a href="#" title="View all">
+									<span class="small">from</span>
+									<span class="price">&#36; 150</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</article>
+{% endfor %}
+{% endblock %}	
