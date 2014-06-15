@@ -9,7 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Book Your Travel - Location</title>
+	<title>Nextrip - Location</title>
 	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" media="screen,projection,print" />
 	<link rel="stylesheet" href="{{STATIC_URL}}css/prettyPhoto.css" type="text/css" media="screen" /><link rel="stylesheet" href="css/theme-turqoise.css" id="template-color" />
 	<link rel="shortcut icon" href="{{STATIC_URL}}images/favicon.ico" />
@@ -21,7 +21,7 @@
 	<header>
 		<div class="wrap clearfix">
 			<!--logo-->
-			<h1 class="logo"><a href="{% url 'location:location' %}" title="Book Your Travel - home"><img src="{{STATIC_URL}}images/txt/logo.png" alt="Book Your Travel" /></a></h1>
+			<h1 class="logo"><a href="{% url 'home' %}" title="Book Your Travel - home"><img src="{{STATIC_URL}}images/txt/logo.png" alt="Book Your Travel" /></a></h1>
 			<!--//logo-->
 			
 			<!--ribbon-->
@@ -29,27 +29,32 @@
 			<!--//ribbon-->
 			
 			<!--search-->
+			<!--
 			<div class="search">
 				<form id="search-form" method="get" action="search-form">
 					<input type="search" placeholder="Search entire site here" name="site_search" id="site_search" /> 
 					<input type="submit" id="submit-site-search" value="submit-site-search" name="submit-site-search"/>
 				</form>
 			</div>
+			-->
 			<!--//search-->
 			
 			<!--contact-->
+			<!--
 			<div class="contact">
 				<span>24/7 Support number</span>
 				<span class="number">1- 555 - 555 - 555</span>
 			</div>
+			-->
 			<!--//contact-->
 		</div>
 		
 		<!--main navigation-->
+		<!--
 		<nav class="main-nav" role="navigation">
 			<ul class="wrap" id="nav">
 				<li><a href="{% url 'location:get_cart' %}" title="Hotels">Hotels</a>
-					<!--
+			
 					<ul>
 						<li><a href="#">Secondary navigation</a></li>
 						<li><a href="#">example links</a>
@@ -64,7 +69,7 @@
 							</ul>
 						</li>
 					</ul>
-					-->
+			
 				</li>
 				<li><a href="flights.html" title="Flights">Flights</a></li>
 				<li><a href="flight_and_hotels.html" title="Flight + Hotel">Flight + Hotel</a></li>
@@ -87,6 +92,7 @@
 				</li>
 			</ul>
 		</nav>
+		-->
 		<!--//main navigation-->
 	</header>
 	<!--//header-->
@@ -103,78 +109,33 @@
 				<!--three-fourth content-->
 				<section class="three-fourth">
 				
-					<h1>London</h1>
+					<h1>{{general.name}}</h1>
 					
 					<!--inner navigation-->
 					<nav class="inner-nav">
 						<ul>
-							<li><a href="#general_info" title="General information">General information</a></li>
-							<li><a href="#sports_and_nature" title="Sports and nature">Sports and nature</a></li>
-							<li><a href="#nightlife" title="Nightlife">Nightlife</a></li>
-							<li><a href="#culture" title="Culture and history">Culture and history</a></li>
-							<li><a href="#hotels" title="Hotels">Hotels</a></li>
-							<li><a href="#" title="Flights">Flights</a></li>
-							<li><a href="#flight_and_hotel" title="Flight + Hotel">Flight + Hotel</a></li>
-							<li><a href="#self_catering" title="Self-catering">Self-catering</a></li>
-							<li><a href="#cruise" title="Cruise">Cruise</a></li>
-							<li><a href="#car_rental" title="Car rental">Car rental</a></li>
+							<li><a href="#general_info" title="Información General">Información General</a></li>
+							<li><a href="#sports_and_nature" title="Deportes">Deportes</a></li>
+							<!--<li><a href="#nightlife" title="Nightlife">Nightlife</a></li>-->
+							<!--<li><a href="#culture" title="Culture and history">Culture and history</a></li>-->
+							<li><a href="#hotels" title="Hoteles">Hoteles</a></li>
+							<!--<li><a href="#" title="Flights">Flights</a></li>-->
+							<!--<li><a href="#flight_and_hotel" title="Flight + Hotel">Flight + Hotel</a></li>-->
+							<li><a href="#self_catering" title="Restaurantes">Restaurantes</a></li>
+							<!--<li><a href="#cruise" title="Cruise">Cruise</a></li>-->
+							<!--<li><a href="#car_rental" title="Car rental">Car rental</a></li>-->
 						</ul>
 					</nav>
 					<!--//inner navigation-->
 					
 					<!--General information-->
-					<section id="general_info" class="tab-content">
-						<article>
-							<h1>London</h1>
-							<figure class="left_pic"><img src="images/uploads/london1.jpg" alt="Things to do - London general" /></figure>
-							<p class="teaser">London is a diverse and exciting city with some of the best sights and attractions in the world. </p>
-							<p>See London from above on the London Eye; meet a celebrity at Madame Tussauds; examine some of the world’s most precious treasures at the British Museum or come face-to-face with the dinosaurs at the Natural History Museum.</p>
-						
-							<table>
-								<tr>
-									<th>Sovereign state</th>
-									<td>United Kingdom</td>
-								</tr>
-								<tr>
-									<th>Country</th>
-									<td>England</td>
-								</tr>
-								<tr>
-									<th>Area</th>
-									<td>1,570 km2 (607 sq mi)</td>
-								</tr>
-								<tr>
-									<th>Time zone</th>
-									<td>GMT (UTC±0)</td>
-								</tr>
-								<tr>
-									<th>Languages spoken</th>
-									<td>English</td>
-								</tr>
-								<tr>
-									<th>Currency</th>
-									<td>British Pound</td>
-								</tr>
-								<tr>
-									<th>Visa requirements</th>
-									<td>No Visa needed</td>
-								</tr>
-							</table>
-						</article>
-					</section>
+					{% block generals %}
+					{% endblock %}
+					
 					<!--//General information-->
 					
 					<!--Sports and nature-->
-					<section id="sports_and_nature" class="tab-content">
-						<article>
-							<h1>Sports and nature</h1>
-							<figure class="left_pic"><img src="images/uploads/london2.jpg" alt="Things to do - London Sports and nature" /></figure>
-							<p class="teaser">London is one of the greenest capitals in the world, with plenty of green and open spaces. There are more than 3000 open spaces.</p>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.<br />Ut wisi enim ad minim veniam, quis nostrud exerci. </p>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
-							<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-						</article>
-					</section>
+					
 					<!--//Sports and nature-->
 					
 					<!--Nightlife-->
@@ -204,9 +165,10 @@
 					<!--//Culture and history-->
 					
 					<!--Hotels-->
+					<!--
 					<section id="hotels" class="tab-content">
 						<div class="deals">
-							<!--deal-->
+							
 
 							
 							<article class="full-width">
@@ -220,18 +182,18 @@
 											<img src="images/ico/star.png" alt="" />
 										</span>
 									</h1>
-									<span class="address">London  •  <a href="{% url 'location:get_cart' %}">Show on map</a></span>
+									<span class="address">London  •  <a href="#">Show on map</a></span>
 									<span class="rating"> 8 /10</span>
 									<span class="price">Price per room per night from  <em>$ 50</em> </span>
 									<div class="description">
 										<p>Overlooking the Aqueduct and Nature Park, Lorem Ipsum Hotel is situated 5 minutes’ walk from London’s Zoological Gardens and a metro station. <a href="#">More info</a></p>
 									</div>
-									<a href="{% url 'location:add_cart' %}" title="Book now" class="gradient-button">Book now</a>
+									<a href="#" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--deal-->
+							
+							
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img1.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -253,9 +215,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--deal-->
+							
+							
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -276,9 +238,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--deal-->
+							
+							
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -299,9 +261,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--deal-->
+							
+							
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img1.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -323,9 +285,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--deal-->
+							
+							
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -346,15 +308,15 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--bottom navigation-->
+							
+							
 							<div class="bottom-nav">
-								<!--back up button-->
+							
 								<a href="#" class="scroll-to-top" title="Back up">Back up</a> 
-								<!--//back up button-->
+							
 								
-								<!--pager-->
+							
 								<div class="pager">
 									<span><a href="#">First page</a></span>
 									<span><a href="#">&lt;</a></span>
@@ -366,11 +328,12 @@
 									<span><a href="#">&gt;</a></span>
 									<span><a href="#">Last page</a></span>
 								</div>
-								<!--//pager-->
+							
 							</div>
-							<!--//bottom navigation-->
+							
 						</div>
 					</section>
+					-->
 					<!--//Hotels-->
 					
 					<!--Flights-->
@@ -728,9 +691,10 @@
 					<!--//Flight+Hotel-->
 					
 					<!--Self Catering-->
+					<!--
 					<section id="self_catering" class="tab-content">
 						<div class="deals">
-							<!--deal-->
+						
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -751,9 +715,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
+						
 							
-							<!--deal-->
+						
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img1.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -775,9 +739,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
+						
 							
-							<!--deal-->
+						
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -798,9 +762,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
+						
 
-							<!--deal-->
+						
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -821,9 +785,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--deal-->
+							
+							
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -844,9 +808,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--deal-->
+							
+							
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img1.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -868,9 +832,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--deal-->
+							
+							
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -891,9 +855,9 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--deal-->
+							
+							
 							<article class="full-width">
 								<figure><a href="hotel.html" title=""><img src="images/slider/img1.jpg" alt="" width="270" height="152" /></a></figure>
 								<div class="details">
@@ -914,15 +878,15 @@
 									<a href="hotel.html" title="Book now" class="gradient-button">Book now</a>
 								</div>
 							</article>
-							<!--//deal-->
 							
-							<!--bottom navigation-->
+							
+							
 							<div class="bottom-nav">
-								<!--back up button-->
+							
 								<a href="#" class="scroll-to-top" title="Back up">Back up</a> 
-								<!--//back up button-->
+							
 								
-								<!--pager-->
+							
 								<div class="pager">
 									<span><a href="#">First page</a></span>
 									<span><a href="#">&lt;</a></span>
@@ -934,11 +898,12 @@
 									<span><a href="#">&gt;</a></span>
 									<span><a href="#">Last page</a></span>
 								</div>
-								<!--//pager-->
+							
 							</div>
-							<!--//bottom navigation-->
+							
 						</div>
 					</section>
+					-->
 					<!--//Self Catering-->
 					
 					<!--Cruise-->
@@ -1428,18 +1393,19 @@
 	<!--//main-->
 	
 	<!--footer-->
+	<!--
 	<footer>
 		<div class="wrap clearfix">
-			<!--column-->
+		
 			<article class="one-fourth">
 				<h3>Book Your Travel</h3>
 				<p>1400 Pennsylvania Ave. Washington, DC</p>
 				<p><em>P:</em> 24/7 customer support: 1-555-555-5555</p>
 				<p><em>E:</em> <a href="#" title="booking@mail.com">booking@mail.com</a></p>
 			</article>
-			<!--//column-->
+		
 			
-			<!--column-->
+		
 			<article class="one-fourth">
 				<h3>Customer support</h3>
 				<ul>
@@ -1449,9 +1415,9 @@
 					<li><a href="#" title="Booking tips">Booking tips</a></li>
 				</ul>
 			</article>
-			<!--//column-->
+		
 			
-			<!--column-->
+		
 			<article class="one-fourth">
 				<h3>Follow us</h3>
 				<ul class="social">
@@ -1465,9 +1431,9 @@
 					<li class="pinterest"><a href="#" title="pinterest">pinterest</a></li>
 				</ul>
 			</article>
-			<!--//column-->
+		
 			
-			<!--column-->
+		
 			<article class="one-fourth last">
 				<h3>Don’t miss our exclusive offers</h3>
 				<form id="newsletter" action="newsletter.php" method="post">
@@ -1477,7 +1443,7 @@
 					</fieldset>
 				</form>
 			</article>
-			<!--//column-->
+		
 			
 			<section class="bottom">
 				<p class="copy">Copyright 2012 Book your travel ltd. All rights reserved</p>
@@ -1496,6 +1462,7 @@
 			</section>
 		</div>
 	</footer>
+	-->
 	<!--//footer-->
 
 	<script src="{{STATIC_URL}}js/jquery-1.11.1.min.js"></script>

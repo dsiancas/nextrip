@@ -9,21 +9,21 @@
 {% else %}
 				<article class="one-fourth">
 {% endif %}
-					<figure><a href="{% url 'location:detail' %}" title=""><img src="{{STATIC_URL}}images/uploads/paris.jpg" alt="" width="270" height="152" /></a></figure>
+					<figure><a href="{% url 'location:detail' i.id_location %}" title=""><img src="{{STATIC_URL}}images/{{i.name}}.jpg" alt="" width="270" height="152" /></a></figure>
 					<div class="details">
-						<a href="#" title="View all" class="gradient-button">View all</a>
+						<a href="{% url 'location:detail' i.id_location %}" title="Ves Mas" class="gradient-button">Ver Mas</a>
 						<h5>{{ i.name }} </h5>
-						<span class="count">1529 Hotels</span>
+						<!--<span class="count">1529 Hotels</span>-->
 						<div class="ribbon">
 							<div class="half hotel">
-								<a href="#" title="View all">
-									<span class="small">from</span>
+								<a href="{% url 'location:detail' i.id_location %}" title="Ver Mas">
+									<span class="small">desde</span>
 									<span class="price">&#36; 70</span>
 								</a>
 							</div>
 							<div class="half flight">
-								<a href="#" title="View all">
-									<span class="small">from</span>
+								<a href="{% url 'location:detail' i.id_location %}" title="Ver Mas">
+									<span class="small">desde</span>
 									<span class="price">&#36; 150</span>
 								</a>
 							</div>

@@ -1,15 +1,20 @@
 from django.shortcuts import render_to_response, RequestContext
 
-from .models import Location, Hotels
+from .models import Location, Hotel, General, Sport, Restaurants
 from cart import Cart
 from cart.models import Item
 
-def location(request):
+def home(request):
 	results = Location.objects.all()
 	return render_to_response('join/home.html',{'results': results},context_instance=RequestContext(request))
 
-def detail(request):
-	return render_to_response('location/location.html',locals(),context_instance=RequestContext(request))
+def detail(request, detail_id):
+    general = General.objects.get(id_location=detail_id)
+    sport = Sport.objects.get(id_location=detail_id)
+    hotel = Hotel.objects.filter(id_location=detail_id)
+    restaurant = Restaurants.objects.filter(id_location=detail_id)
+    ctx = {'general': general,'sport': sport, 'hotel':hotel, 'restaurant':restaurant}
+    return render_to_response('location/location.html',ctx,context_instance=RequestContext(request))
 
 #def add_cart(request, product_id, quantity, unit_price):
 #    product = Hotels.objects.get(id=product_id)

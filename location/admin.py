@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Location
-from .models import Hotels, Restaurant
+from .models import Hotel, Restaurants, General, Sport
 
 class LocationAdmin(admin.ModelAdmin):
 	class Meta:
@@ -9,13 +9,23 @@ class LocationAdmin(admin.ModelAdmin):
 
 class HotelAdmin(admin.ModelAdmin):
 	class Meta:
-		model = Hotels
+		model = Hotel
 
-class RestaurantAdmin(admin.ModelAdmin):
+class RestaurantsAdmin(admin.ModelAdmin):
 	class Meta:
-		model = Restaurant
+		model = Restaurants
+
+class GeneralAdmin(admin.ModelAdmin):
+	class Meta:
+		model = General
+
+class SportAdmin(admin.ModelAdmin):
+	class Meta:
+		model = Sport
 
 
 admin.site.register(Location, LocationAdmin)
-admin.site.register(Hotels, HotelAdmin)
-admin.site.register(Restaurant, RestaurantAdmin)
+admin.site.register(Sport, SportAdmin)
+admin.site.register(General, GeneralAdmin)
+admin.site.register(Hotel, HotelAdmin)
+admin.site.register(Restaurants, RestaurantsAdmin)

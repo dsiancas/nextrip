@@ -1,5 +1,114 @@
 {% extends 'loc.html' %}
 
-{% block content %}	
-{{all_entries.as_p}}
+{% block generals %}	
+					<section id="general_info" class="tab-content">
+						<article>
+							<h1>{{ general.name }}</h1>
+							<figure class="left_pic"><img src="{{STATIC_URL}}images/{{general.name}}.jpg" alt="Things to do - London general" /></figure>
+							<p class="teaser">{{general.description}} </p>
+							<!--
+							<p>See London from above on the London Eye; meet a celebrity at Madame Tussauds; examine some of the world’s most precious treasures at the British Museum or come face-to-face with the dinosaurs at the Natural History Museum.</p>
+							-->
+							<table>
+								<!--
+								<tr>
+									<th>Sovereign state</th>
+									<td>United Kingdom</td>
+								</tr>
+								-->
+								<tr>
+									<th>Pais</th>
+									<td>{{general.country}}</td>
+								</tr>
+								<!--
+								<tr>
+									<th>Area</th>
+									<td>1,570 km2 (607 sq mi)</td>
+								</tr>
+								<tr>
+									<th>Time zone</th>
+									<td>GMT (UTC±0)</td>
+								</tr>
+								-->
+								<tr>
+									<th>Lengua</th>
+									<td>{{general.language}}</td>
+								</tr>
+								<tr>
+									<th>Moneda</th>
+									<td>{{general.currency}}</td>
+								</tr>
+								<tr>
+									<th>Requiere Visa</th>
+									<td>{{general.visaReq}}</td>
+								</tr>
+							</table>
+						</article>
+					</section>
+			
+					<section id="sports_and_nature" class="tab-content">
+						<article>
+							<h1>Deportes</h1>
+							<figure class="left_pic"><img src="{{STATIC_URL}}images/{{general.name}}.jpg" alt="Deportes" /></figure>
+							<!--
+							<p class="teaser">London is one of the greenest capitals in the world, with plenty of green and open spaces. There are more than 3000 open spaces.</p>
+							-->
+							<p>{{sport.description}}</p>
+
+						</article>
+					</section>
+
+
+					<section id="hotels" class="tab-content">
+						<div class="deals">
+							{% for i in hotel %}
+							<article class="full-width">
+								<figure><a href="#" title=""><img src="{{STATIC_URL}}images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
+								<div class="details">
+									<h1>{{i.name}}
+										<span class="stars">
+											<img src="{{STATIC_URL}}images/ico/star.png" alt="" />
+											<img src="{{STATIC_URL}}images/ico/star.png" alt="" />
+											<img src="{{STATIC_URL}}images/ico/star.png" alt="" />
+											<img src="{{STATIC_URL}}images/ico/star.png" alt="" />
+										</span>
+									</h1>
+									<!--<span class="address">London  •  <a href="#">Show on map</a></span>-->
+									<span class="rating"> 8 /10</span>
+									<span class="price">Precios por habitación por noche desde: <em>S/. {{i.price}} </em> </span>
+									<div class="description">
+										<p>{{i.description}}</a></p>
+									</div>
+									<a href="#" title="Añadir" class="gradient-button">Añadir</a>
+								</div>
+							</article>
+							{% endfor %}
+						</div>
+					</section>
+
+					<section id="self_catering" class="tab-content">
+						<div class="deals">
+							{% for j in restaurant %}
+							<article class="full-width">
+								<figure><a href="#" title=""><img src="{{STATIC_URL}}images/slider/img4.jpg" alt="" width="270" height="152" /></a></figure>
+								<div class="details">
+									<h1> {{j.name}}
+										<span class="stars">
+											<img src="{{STATIC_URL}}images/ico/star.png" alt="" />
+											<img src="{{STATIC_URL}}images/ico/star.png" alt="" />
+											<img src="{{STATIC_URL}}images/ico/star.png" alt="" />
+										</span>
+									</h1>
+									
+									<span class="rating"> 6 /10</span>
+									<span class="price">Precio por plato desde  <em>S/. {{j.price}}</em> </span>
+									<div class="description">
+										<p>{{j.description}}</p>
+									</div>
+									<a href="#" title="Añadir" class="gradient-button">Añadir</a>
+								</div>
+							</article>
+							{% endfor %}
+						</div>
+					</section>
 {% endblock %}	

@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'nextrip.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
+    url(r'^$', 'location.views.home', name='home'),
     url(r'^location/', include('location.urls', namespace="location")),
     url(r'^admin/', include(admin.site.urls)),
 )

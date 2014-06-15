@@ -4,9 +4,9 @@ from location import views
 
 urlpatterns = patterns('',
     # ex: /polls/
-    url(r'^$', views.location, name='location'),
-   
-    url(r'^detail/$', views.detail, name='detail'),
+    # url(r'^$', views.home, name='home'),
+    url(r'^(?P<detail_id>\d+)/$', views.detail, name='detail'),
+    #url(r'^detail/$', views.detail, name='detail'),
     # ex: /polls/5/
     url(r'^detail/$', views.get_cart, name='get_cart'),
     
