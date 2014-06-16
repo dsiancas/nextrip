@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Location(models.Model):
 	id_location = models.IntegerField(primary_key=True)
-	name = models.CharField(max_length=250)
+	nombre = models.CharField(max_length=250)
 	description = models.CharField(max_length=650)
 	
 	def __unicode__(self):
